@@ -1,8 +1,12 @@
 import Skeleton from './Skeleton'
-Skeleton.install = Vue => Vue.component(Skeleton.componentName, Skeleton);
+export { default as Article } from './Article'
+import Avatar from './Avatar'
+import Rect from './Rect'
+import List from './List'
 
-if (typeof window !== 'undefined' && window.Vue) {
-  window.Vue.use(Skeleton);
+export {
+  Avatar,
+  Rect,
+  List
 }
-
 export default Skeleton

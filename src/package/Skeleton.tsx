@@ -1,19 +1,30 @@
 import {Vue, Component, Prop} from 'vue-property-decorator'
+import BaseComponent from './BaseComponent'
+import Rect from './Rect'
 import style from './style.less'
-
+/**
+ * type?: Type,
+ * active?: Boolean,
+ * loading?: Boolean,
+ * title?: Boolean
+ */
 @Component
-class Skeleton extends Vue {
-  public static install
+class Skeleton extends BaseComponent {
   public static componentName: string = 'Skeleton'
-  public name: string = 'Skeleton'
+  // tslint:disable-next-line:no-shadowed-variable
+  public static install = Vue => Vue.component(Skeleton.componentName, Skeleton)
+
   public mounted() {
-    // tslint:disable-next-line:no-console
-    console.log('mounted')
   }
   public render(h) {
+    const {type, options, title, loading, active} = this.$props
     return (
       <div>
-        <h1>这是头部</h1>
+        <div class={style.prog}>
+          <Rect
+            options={options}
+          />
+        </div>
       </div>
     )
   }

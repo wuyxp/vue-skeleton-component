@@ -13,13 +13,33 @@ const style = {
 }
 @Component
 class Home extends Vue {
-  public name: string = '测试我的组件是否好使呢'
+  public name: string = '通用化骨架屏'
   public render(h) {
     return (
       <div>
         <h1>
           {this.name}
-          <Skeleton />
+          <Skeleton
+            active={false}
+            type='rect'
+            options={{
+              width: '300px',
+              height: '200px'
+            }}
+          />
+          <Skeleton
+            loading={false}
+            type='list'
+            options={{
+              row: 3,
+              lineHight: 10,
+              avatar: {
+                position: 'left',
+                size: 'large',
+                shape: 'circle'
+              }
+            }}
+          />
         </h1>
       </div>
     )

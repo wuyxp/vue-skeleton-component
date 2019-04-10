@@ -1,7 +1,10 @@
-import Skeleton from './package/index';
+import Skeleton, { Article, Avatar, List } from './package/index';
 
 const components = [
   Skeleton,
+  Article,
+  Avatar,
+  List
 ]
 
 const install = (Vue, opts = {}) => {
