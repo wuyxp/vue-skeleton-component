@@ -16,21 +16,23 @@ class Skeleton extends BaseComponent {
   // tslint:disable-next-line:no-shadowed-variable
   public static install = Vue => Vue.component(Skeleton.componentName, Skeleton)
 
-  public mounted() {}
   public render(h) {
     const {type, options, title, loading, active} = this.$props
     return (
-      <div>
+      <div class={style.contianer}>
         {
           loading ?
-          <div
-            class={active ? style.progActive : style.prog}
-          >
+          <div>
             {
-              title && <div class={style.title} />
+              title && <div class={[active ? style.progActive : style.prog, style.title]} />
             }
             {
-              type === 'rect' && <Rectangular options={options} />
+              type === 'rect' && <Rectangular
+                title={title}
+                loading={loading}
+                active={active}
+                options={options}
+              />
             }
             {
               type === 'list' && <List options={options} />

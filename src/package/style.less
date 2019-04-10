@@ -1,13 +1,19 @@
-.prog > div {
+.contianer * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.prog{
   background: #e6e6e6; 
   position: relative;
 }
-.progActive > div {
+.progActive {
   transition: all 0.25s ease-in-out;
   background: #e6e6e6; 
   position: relative;
+  list-style: none;
 }
-.progActive > div:after {
+.progActive:after {
   content:"";
   display: block; 
   height: 100%; 

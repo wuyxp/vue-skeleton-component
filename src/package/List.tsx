@@ -1,23 +1,35 @@
-import {Vue, Component, Prop} from 'vue-property-decorator'
+import { Component } from 'vue-property-decorator'
+import BaseComponent from './BaseComponent'
 import style from './style.less'
 
 @Component
-class Skeleton extends Vue {
+class List extends BaseComponent {
   public static componentName: string = 'List'
   // tslint:disable-next-line:no-shadowed-variable
-  public static install = Vue => Vue.component(Skeleton.componentName, Skeleton)
+  public static install = Vue => Vue.component(List.componentName, List)
   public name: string = 'List'
-  public mounted() {
-    // tslint:disable-next-line:no-console
-    console.log('List')
-  }
   public render(h) {
+    const {type, options, title, loading, active} = this.$props
+    const {row, lineHight, avatar} = options
+    const arr = Array(row).fill(0)
     return (
-      <div>
-        <h1>List</h1>
-      </div>
+      <ul>
+        {
+          arr.map((item, index) => (
+            <li
+              key={index}
+              class={[active ? style.progActive : style.prog ]}
+              style={{
+                height: lineHight + 'px',
+                marginBottom: lineHight * 0.6 + 'px',
+                width: index === arr.length - 1 ? '60%' : '100%'
+              }}
+            />
+          ))
+        }
+      </ul>
     )
   }
 }
 
-export default Skeleton
+export default List

@@ -32,7 +32,7 @@ class Home extends Vue {
             type='list'
             options={{
               row: 3,
-              lineHight: 10,
+              lineHight: 20,
               avatar: {
                 position: 'left',
                 size: 'large',
