@@ -1,7 +1,9 @@
 import {Vue, Component, Prop} from 'vue-property-decorator'
 import BaseComponent from './BaseComponent'
-import Rect from './Rect'
+import Rectangular from './Rect'
+import List from './List'
 import style from './style.less'
+
 /**
  * type?: Type,
  * active?: Boolean,
@@ -14,17 +16,28 @@ class Skeleton extends BaseComponent {
   // tslint:disable-next-line:no-shadowed-variable
   public static install = Vue => Vue.component(Skeleton.componentName, Skeleton)
 
-  public mounted() {
-  }
+  public mounted() {}
   public render(h) {
     const {type, options, title, loading, active} = this.$props
     return (
       <div>
-        <div class={style.prog}>
-          <Rect
-            options={options}
-          />
-        </div>
+        {
+          loading ?
+          <div
+            class={active ? style.progActive : style.prog}
+          >
+            {
+              title && <div class={style.title} />
+            }
+            {
+              type === 'rect' && <Rectangular options={options} />
+            }
+            {
+              type === 'list' && <List options={options} />
+            }
+          </div> :
+          this.$slots.default
+        }
       </div>
     )
   }

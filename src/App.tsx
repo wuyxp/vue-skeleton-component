@@ -21,6 +21,7 @@ class Home extends Vue {
           {this.name}
           <Skeleton
             active={false}
+            title={true}
             type='rect'
             options={{
               width: '300px',
@@ -28,7 +29,6 @@ class Home extends Vue {
             }}
           />
           <Skeleton
-            loading={false}
             type='list'
             options={{
               row: 3,
@@ -40,6 +40,10 @@ class Home extends Vue {
               }
             }}
           />
+          <Skeleton
+            type='article'
+            loading={false}
+          > <div>aaa</div>loading的占位符 </Skeleton>
         </h1>
       </div>
     )

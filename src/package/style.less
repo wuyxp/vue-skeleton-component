@@ -1,15 +1,17 @@
-.prog {
-  display: inline-block;
+.prog > div {
+  background: #e6e6e6; 
+  position: relative;
+}
+.progActive > div {
   transition: all 0.25s ease-in-out;
   background: #e6e6e6; 
   position: relative;
 }
-.prog:after {
+.progActive > div:after {
   content:"";
   display: block; 
   height: 100%; 
   width: 100%;
-  border-radius: 5px;
   position: absolute; 
   left: 0; 
   top: 0;
@@ -29,6 +31,12 @@
   100% {
     background-position: 0 50%;
   }
+}
+
+.title {
+  width: 200px;
+  height: 30px;
+  margin-bottom: 20px
 }
 
 

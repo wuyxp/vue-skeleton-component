@@ -2,15 +2,11 @@ import {Vue, Component, Prop} from 'vue-property-decorator'
 import BaseComponent from './BaseComponent'
 
 @Component
-class Rect extends BaseComponent {
-  public static componentName: string = 'Rect'
+class Rectangular extends BaseComponent {
+  public static componentName: string = 'Rectangular'
   // tslint:disable-next-line:no-shadowed-variable
-  public static install = Vue => Vue.component(Rect.componentName, Rect)
-  public name: string = 'Rect'
-  public mounted() {
-    console.log('Rect')
-    console.log(this.$props)
-  }
+  public static install = Vue => Vue.component(Rectangular.componentName, Rectangular)
+  public name: string = 'Rectangular'
   public render(h) {
     const {width, height} = this.$props.options
     const style = {
@@ -25,4 +21,4 @@ class Rect extends BaseComponent {
   }
 }
 
-export default Rect
+export default Rectangular
