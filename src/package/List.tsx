@@ -10,7 +10,7 @@ class List extends BaseComponent {
   public name: string = 'List'
   public render(h) {
     const {type, options, title, loading, active} = this.$props
-    const {row, lineHight, avatar} = options
+    const {row, lineHight, avatar, width} = options
     const arr = Array(row).fill(0)
 
     const defaultSize = lineHight * row * 1.6
@@ -25,17 +25,19 @@ class List extends BaseComponent {
       top: 'column',
       bottom: 'column-reverse'
     }
-    let containerStyle = {}
+    let containerStyle = {
+      width: width ? width + 'px' : 'auto'
+    }
     let avatarStyle = {}
     let listStyle = {}
     if ( avatar ) {
       const {position, size, shape} = avatar
-      containerStyle = {
+      containerStyle = Object.assign(containerStyle, {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
         flexDirection: flexDirectionMap[position]
-      }
+      })
       listStyle = {
         flex: '1',
         marginLeft: position === 'left' ? '20px' : 0,

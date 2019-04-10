@@ -38,12 +38,14 @@ interface AvatarOptions {
 interface ListOptions {
   row: number,
   lineHight: number,
+  width: number,
   avatar: AvatarOptions | null
 }
 
 /* 文章骨架屏 */
 interface ArticleOptions {
   lineHight: number,
+  width: number,
   row: number
 }
 
