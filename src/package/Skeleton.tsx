@@ -2,6 +2,8 @@ import {Vue, Component, Prop} from 'vue-property-decorator'
 import BaseComponent from './BaseComponent'
 import Rectangular from './Rect'
 import List from './List'
+import Avatar from './Avatar'
+import Article from './Article'
 import style from './style.less'
 
 /**
@@ -35,7 +37,28 @@ class Skeleton extends BaseComponent {
               />
             }
             {
-              type === 'list' && <List options={options} />
+              type === 'list' && <List
+                title={title}
+                loading={loading}
+                active={active}
+                options={options}
+              />
+            }
+            {
+              type === 'article' && <Article
+                title={title}
+                loading={loading}
+                active={active}
+                options={options}
+              />
+            }
+            {
+              type === 'avatar' && <Avatar
+                title={title}
+                loading={loading}
+                active={active}
+                options={options}
+              />
             }
           </div> :
           this.$slots.default

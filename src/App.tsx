@@ -41,6 +41,38 @@ class Home extends Vue {
             }}
           />
           <Skeleton
+            type='avatar'
+            options={{
+              position: 'left',
+              size: 'default',
+              shape: 'circle'
+            }}
+          />
+          <Skeleton
+            type='avatar'
+            options={{
+              position: 'right',
+              size: 'large',
+              shape: 'circle'
+            }}
+          />
+          <Skeleton
+            type='avatar'
+            options={{
+              position: 'top',
+              size: 'small',
+              shape: 'circle'
+            }}
+          />
+          <Skeleton
+            type='avatar'
+            options={{
+              position: 'bottom',
+              size: 'default',
+              shape: 'square'
+            }}
+          />
+          <Skeleton
             type='article'
             loading={false}
           > <div>aaa</div>loading的占位符 </Skeleton>

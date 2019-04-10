@@ -10,7 +10,6 @@ class Rectangular extends BaseComponent {
   public name: string = 'Rectangular'
   public render(h) {
     const {type, options, title, loading, active} = this.$props
-    console.log(active)
     const {width, height} = options
     const styleC = {
       width,

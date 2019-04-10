@@ -53,7 +53,7 @@ declare module 'vue/types/options' {
     active?: Boolean,
     loading?: Boolean,
     title?: Boolean,
-    options?: RectOptions | ListOptions
+    options?: RectOptions | ListOptions | AvatarOptions | ArticleOptions
   }
 }
 declare var require: any
