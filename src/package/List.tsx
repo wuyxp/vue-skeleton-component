@@ -12,22 +12,63 @@ class List extends BaseComponent {
     const {type, options, title, loading, active} = this.$props
     const {row, lineHight, avatar} = options
     const arr = Array(row).fill(0)
+
+    const defaultSize = lineHight * row * 1.6
+    const sizeMap = {
+      large: defaultSize * .8,
+      small: defaultSize * .6,
+      default: defaultSize
+    }
+    const flexDirectionMap = {
+      left: 'row',
+      right: 'row-reverse',
+      top: 'column',
+      bottom: 'column-reverse'
+    }
+    let containerStyle = {}
+    let avatarStyle = {}
+    let listStyle = {}
+    if ( avatar ) {
+      const {position, size, shape} = avatar
+      containerStyle = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        flexDirection: flexDirectionMap[position]
+      }
+      listStyle = {
+        flex: '1',
+        marginLeft: position === 'left' ? '20px' : 0,
+        marginRight : position === 'right' ? '20px' : 0
+      }
+      avatarStyle = {
+        width: sizeMap[size] + 'px',
+        height: sizeMap[size] + 'px',
+        borderRadius: shape === 'circle' ? '50%' : '0',
+        overflow: 'hidden'
+      }
+    }
     return (
-      <ul>
+      <div style={containerStyle}>
         {
-          arr.map((item, index) => (
-            <li
-              key={index}
-              class={[active ? style.progActive : style.prog ]}
-              style={{
-                height: lineHight + 'px',
-                marginBottom: lineHight * 0.6 + 'px',
-                width: index === arr.length - 1 ? '60%' : '100%'
-              }}
-            />
-          ))
+          avatar && <div class={[active ? style.progActive : style.prog ]} style={avatarStyle}></div>
         }
-      </ul>
+        <ul style={listStyle}>
+          {
+            arr.map((item, index) => (
+              <li
+                key={index}
+                class={[active ? style.progActive : style.prog ]}
+                style={{
+                  height: lineHight + 'px',
+                  marginBottom: lineHight * 0.6 + 'px',
+                  width: index === arr.length - 1 ? '60%' : '100%'
+                }}
+              />
+            ))
+          }
+        </ul>
+      </div>
     )
   }
 }

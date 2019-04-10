@@ -41,6 +41,25 @@ class Home extends Vue {
             }}
           />
           <Skeleton
+            type='list'
+            options={{
+              row: 2,
+              lineHight: 20,
+              avatar: {
+                position: 'right',
+                size: 'default',
+                shape: 'square'
+              }
+            }}
+          />
+          <Skeleton
+            type='list'
+            options={{
+              row: 4,
+              lineHight: 20
+            }}
+          />
+          <Skeleton
             type='avatar'
             options={{
               position: 'left',

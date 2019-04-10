@@ -8,10 +8,6 @@ class Avatar extends BaseComponent {
   // tslint:disable-next-line:no-shadowed-variable
   public static install = Vue => Vue.component(Avatar.componentName, Avatar)
   public name: string = 'Avatar'
-  public mounted() {
-    // tslint:disable-next-line:no-console
-    console.log('Avatar')
-  }
   public render(h) {
     const defaultSize = 40
     const sizeMap = {
